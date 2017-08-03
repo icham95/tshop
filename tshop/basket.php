@@ -1,7 +1,6 @@
 <?php
-    
     include_once('pages/header.php');
-
+    
 ?>
 
 
@@ -116,7 +115,7 @@
 
                         }
 
-                        if( isset($_GET['order']) ){
+                        if( isset($_GET['order']) && $_SESSION['_token_detail'] == $_GET['token'] ){
 
                             $id_barang_order = $_GET['order'];
 
@@ -158,8 +157,9 @@
                                 error_snap("Gagal menambahkan order !");
                             }
 
+                            $_SESSION['_token_detail'] = generate_token();
 
-                        }
+                        } // end if isset order
 
                         $query = 
                             "
@@ -274,6 +274,7 @@
                                         Update jumlah barang
                                         <i class="fa fa-pencil-square-o"></i>
                                     </button>
+                                    <input type="hidden" name="token" value="<?= $_token ?>">
 
                                 </div>
                                 <div class="pull-right">

@@ -26,4 +26,10 @@
 
 	}
 
+	function generate_token () {
+		$_token = rand(0,100);
+    $_token = md5($_token);
+    return $_token;
+	}
+
 ?>

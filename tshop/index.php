@@ -3,6 +3,9 @@
 ?>
 
 <?php
+    // token
+    $_SESSION['_token_detail'] = generate_token();
+
     // pagination tampil
     if( isset($_GET['p']) ){
         $p = (int)$_GET['p'];
@@ -152,7 +155,7 @@
                                         <?php  
                                             if( $login === 1 ){
                                         ?>
-                                        <a href="basket.php?order=<?=$data['id_barang']?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Tambah ke keranjang</a>
+                                        <a href="basket.php?order=<?=$data['id_barang']?>&token=<?= $_SESSION['_token_detail'] ?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Tambah ke keranjang</a>
                                         <?php } ?>
                                     </p>
                                 </div>
