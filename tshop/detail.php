@@ -36,8 +36,8 @@
 
                     <div class="row" id="productMain">
                         <div class="col-sm-6">
-                            <div id="mainImage" style="">
-                                <img src="../admin/img/barang/<?=$data['gambar']?>" alt="" style="width: 100%;" class="img-responsive">
+                            <div id="mainImage" style="background-color:white;">
+                                <img id="zoom" data-zoom-image="../admin/img/barang/<?=$data['gambar']?>" src="../admin/img/barang/<?=$data['gambar']?>" alt="" style="width:60%;" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -117,6 +117,12 @@
         </div>
         <!-- /#content -->
     </div>
+    <script src='views/js/jquery-1.8.3.min.js'></script>
+    <script src='views/js/jquery.elevatezoom.js'></script>
+    <script>
+        $('#zoom').elevateZoom(); 
+    </script>
+
 <?php
     
     include_once('pages/footer.php');
