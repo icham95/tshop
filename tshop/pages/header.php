@@ -5,6 +5,10 @@
     include_once('function/crud.php');
     include_once('function/shop.php');
 
+    if (isset($_GET['search'])) {
+        
+    }
+
     $login = 0;
     if( isset( $_SESSION['id_user'] ) AND isset($_SESSION['nama_user']) ){
         $login = 1;
@@ -19,46 +23,45 @@
         $nama_user = "";
     }
 
-                        if( isset($_POST['blogin']) && $_POST['blogin'] == 'blogin' ){
+        if( isset($_POST['blogin']) && $_POST['blogin'] == 'blogin' ){
 
-                            // validation here
-                            $error = 0;
-                            if( empty($_POST['email_login']) ){
-                                $error = 1;
-                            }else if( empty($_POST['password_login']) ){
-                                $error = 1;
-                            }
+            // validation here
+            $error = 0;
+            if( empty($_POST['email_login']) ){
+                $error = 1;
+            }else if( empty($_POST['password_login']) ){
+                $error = 1;
+            }
 
-                            if( empty( $_POST['email_login'] ) ){
-                                error_snap("Email login masih kosong !");
-                            }
+            if( empty( $_POST['email_login'] ) ){
+                error_snap("Email login masih kosong !");
+            }
 
-                            if( empty( $_POST['password_login'] ) ){
-                                error_snap("Password login masih kosong !");
-                            }
+            if( empty( $_POST['password_login'] ) ){
+                error_snap("Password login masih kosong !");
+            }
 
-                            if( $error == 1 ){
-                                error_snap(" Gagal Login ! ");
-                            }else{
+            if( $error == 1 ){
+                error_snap(" Gagal Login ! ");
+            }else{
 
-                                $query = "SELECT * FROM tbl_user WHERE email = '".$_POST['email_login']."' AND password = '".$_POST['password_login']."';";
-                                $proses = mysqli_query($conn,$query);
-                                $hitung_login = mysqli_num_rows($proses);
+                $query = "SELECT * FROM tbl_user WHERE email = '".$_POST['email_login']."' AND password = '".$_POST['password_login']."';";
+                $proses = mysqli_query($conn,$query);
+                $hitung_login = mysqli_num_rows($proses);
 
-                                if( $hitung_login < 1 ){
-                                $error = 1;
-                                error_snap("Email dan password tidak cocok !");
-                                }else{
-                                    $data = mysqli_fetch_assoc( $proses );
-                                    $_SESSION['id_user'] = $data['id_user'];
-                                    $_SESSION['nama_user'] = $data['nama_user'];
-                                    echo '<script> location.replace("index.php"); </script>'; 
-                                }
+                if( $hitung_login < 1 ){
+                $error = 1;
+                error_snap("Email dan password tidak cocok !");
+                }else{
+                    $data = mysqli_fetch_assoc( $proses );
+                    $_SESSION['id_user'] = $data['id_user'];
+                    $_SESSION['nama_user'] = $data['nama_user'];
+                    echo '<script> location.replace("index.php"); </script>'; 
+                }
+                
+            }
 
-                                
-                            }
-
-                        }
+        }
 
 ?>
 <!DOCTYPE html>
@@ -217,6 +220,7 @@
 
                 <ul class="nav navbar-nav navbar-left">
                     <li class="active"><a href="index.php">Home</a></li>
+                    <li class=""><a href="tracking.php">tracking</a></li>
                     <?php if( $login === 1 ){ ?>
                     <li class=""><a href="customer-orders.php">Cek order</a></li>
                     <?php } ?>
@@ -247,18 +251,14 @@
             </div>
 
             <div class="collapse clearfix" id="search">
-
                 <form class="navbar-form" role="search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="search" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
-
-            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-
-            </span>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </span>
                     </div>
                 </form>
-
             </div>
             <!--/.nav-collapse -->
 

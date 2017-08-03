@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "a0d70469f5a40e1db8e4f557f0bc7b14",
+    "content-hash": "7a311b648e041331eef2386363ed36f9",
+    "packages": [
+        {
+            "name": "aftership/aftership-php-sdk",
+            "version": "5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AfterShip/aftership-sdk-php.git",
+                "reference": "72b98cdda83072f71abfe608c15b3ed96e52bddc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AfterShip/aftership-sdk-php/zipball/72b98cdda83072f71abfe608c15b3ed96e52bddc",
+                "reference": "72b98cdda83072f71abfe608c15b3ed96e52bddc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AfterShip\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "AfterShip",
+                    "email": "support@aftership.com"
+                }
+            ],
+            "description": "The PHP SDK of AfterShip API",
+            "keywords": [
+                "FedEx",
+                "aftership",
+                "dhl",
+                "shipping",
+                "track",
+                "tracking",
+                "ups",
+                "usps"
+            ],
+            "time": "2017-07-14 10:06:52"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

@@ -101,7 +101,6 @@
 				$isi_header = $header[$i];
 				$isi[$no][$isi_header] = $data[$i];
 			}
-
 		}
 
 		$jumlah_isi = sizeof($isi);
@@ -152,41 +151,37 @@
 
 			echo '</tr>';
 		}
-
+	
 		echo '</tbody>';		
 		echo '</table>';		
-
+	
 	}
-
+	
 	function db_add($table, $data = array() ){
 		GLOBAL $conn;
-
+	
 		$query = 'INSERT INTO '.$table.' (';
-
+	
 		foreach ($data as $key => $val) {
 			$query .= ' '.$key." ,";
 		}
-
+	
 		//hilang koma
 		$hitung = strlen($query);
 		$kurangin = (int)$hitung - 1;
 		$ilangin = substr($query, 0, $kurangin);
 		$query = $ilangin.') VALUES (';
-
+	
 		foreach ($data as $key) {
 			$query .= " '".$key."' ,";
 		}
-
+	
 		//hilang koma
 		$hitung = strlen($query);
 		$kurangin = (int)$hitung - 1;
 		$ilangin = substr($query, 0, $kurangin);
 		$query = $ilangin.') ';
-
-		return $query;
-
-	}	
-
 	
-
-?>
+		return $query;
+	
+	}

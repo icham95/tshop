@@ -57,15 +57,13 @@
 
         <?php
             if( isset( $_GET['h'] ) || isset( $_GET['p'] ) || isset( $_GET['brands'] ) ){
-
+                
             }else{
-
         ?>
-
             <div class="container">
                 <div class="col-md-12">
                     <div id="main-slider">
-                        <div class="item"">
+                        <div class="item">
                             <img src="../admin/img/handpon.jpg"  class="img-responsive">
                         </div>
                         <div class="item">
