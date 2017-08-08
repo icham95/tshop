@@ -220,7 +220,7 @@
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="index.php">Home</a></li>
+                    <li class="active"><a href="index.php">Homes</a></li>
                     <li class=""><a href="tracking.php">tracking</a></li>
                     <?php if( $login === 1 ){ ?>
                     <li class=""><a href="customer-orders.php">Cek order</a></li>
