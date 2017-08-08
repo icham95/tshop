@@ -122,7 +122,6 @@
       fetch(url, {method: 'GET'})
       .then(resp => resp.json())
       .then(body => {
-        
         loading.style.display = 'none';
         content.style.display = 'block';
         let data = body.data.tracking;

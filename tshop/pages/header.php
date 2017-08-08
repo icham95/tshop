@@ -104,7 +104,7 @@
 
     <style type="text/css" media="screen">
         .alert-error{
-            background-color:crimson;
+            background-color:red;
             color:white;
         }
     </style>

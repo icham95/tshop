@@ -3,6 +3,9 @@
 ?>
 
 <?php
+
+    // token
+    $_SESSION['_token_detail'] = generate_token();
     
     if( isset( $_GET['produk'] ) ){
         $id_produk = $_GET['produk'];
@@ -54,7 +57,7 @@
                                 <?php  
                                     if( $login === 1 ){
                                 ?>
-                                    <a href="basket.php?order=<?=$data['id_barang']?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
+                                    <a href="basket.php?order=<?=$data['id_barang']?>&token=<?= $_SESSION['_token_detail'] ?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Tambah ke keranjang</a>
                                     <a href="basket.php?wish=<?=$data['id_barang']?>" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
                                 <?php }else{ ?>
                                     <span style="font-size: 12px;color:crimson;">Kamu harus login terlebih dahulu , untuk membeli !</span>

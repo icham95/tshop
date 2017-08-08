@@ -274,7 +274,6 @@
                                         Update jumlah barang
                                         <i class="fa fa-pencil-square-o"></i>
                                     </button>
-                                    <input type="hidden" name="token" value="<?= $_token ?>">
 
                                 </div>
                                 <div class="pull-right">
