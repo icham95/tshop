@@ -191,7 +191,8 @@
             <div class="navbar-header">
 
                 <a class="navbar-brand home" href="index.php" data-animate-hover="bounce">
-                    <span style="font-size: 24px;line-height: 45px;">Henpon</span>
+                    <!-- <span style="font-size: 24px;line-height: 45px;">Henpon</span> -->
+                    <img src="views/img/hr.jpg">
                 </a>
 
                 <div class="navbar-buttons">
