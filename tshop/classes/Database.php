@@ -43,7 +43,13 @@ class Database
     $sth = $this->_instance->prepare($sql);
     $sth->execute([$value]);
     return $sth->fetchAll();
-    
+  }
+
+  public function query($query)
+  {
+    $sth = $this->_instance->prepare($query);
+    $sth->execute();
+    return $sth->fetchAll();
   }
 
   public function disconnect () {

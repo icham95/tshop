@@ -30,7 +30,7 @@ _________________________________________________________ -->
             merk.innerHTML += 
             `
             <li>
-                <a href="?h=<?= $page ?>&p=<?= $p ?>&brands=${data[i]['id_merk']}"> ${data[i]['nama_merk']} </a>
+                <a href="?h=${page}&p=${perPage}&brands=${data[i]['id_merk']}"> ${data[i]['nama_merk']} </a>
             </li>
             `
         }
