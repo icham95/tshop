@@ -9,7 +9,7 @@ class Database
   public $host = 'localhost';
   public $username = 'root';
   public $password = 'root';
-  public $database = 'db_votex';
+  public $database = 'db_olshop';
   private $_instance;
 
   public function __construct () {
@@ -19,6 +19,14 @@ class Database
   public function connect()
   {
     $this->_instance = new PDO('mysql:host=' .$this->host. ';dbname=' .$this->database. ';', $this->username, $this->password);
+  }
+
+  public function gets($table)
+  {
+    $sql = "select * from $table";
+    $sth = $this->_instance->prepare($sql);
+    $sth->execute();
+    return $sth->fetchAll();
   }
 
   public function register($arr)

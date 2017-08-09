@@ -109,7 +109,7 @@
       let slugKurir = kurir[kurir.selectedIndex].value
       let noResi = document.getElementById('noresi').value
       // let url = `http://localhost/tshop/tshop/api.php?tracking&slug=${slugKurir}&id=${noResi}`
-      let url = 'http://localhost/tshop/tshop/api/tracking'
+      let url = `http://localhost/tshop/tshop/api/tracking`
 
       let slug = document.getElementById('slug');
       let tag = document.getElementById('tag');
