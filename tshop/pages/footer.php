@@ -68,7 +68,14 @@
     <script src="views/js/owl.carousel.min.js"></script>
     <script src="views/js/front.js"></script>
 
-
+<script>
+    navigator.serviceWorker.register('./sw.js')
+    .then(function() {
+      console.log('registered service worker')
+    }).catch(function() {
+      console.log('error')
+    })
+</script>
 
 </body>
 

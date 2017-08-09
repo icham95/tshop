@@ -108,7 +108,8 @@
       let kurir = document.getElementById('select')
       let slugKurir = kurir[kurir.selectedIndex].value
       let noResi = document.getElementById('noresi').value
-      let url = `http://localhost/tshop/tshop/api.php?tracking&slug=${slugKurir}&id=${noResi}`
+      // let url = `http://localhost/tshop/tshop/api.php?tracking&slug=${slugKurir}&id=${noResi}`
+      let url = 'http://localhost/tshop/tshop/api/tracking'
 
       let slug = document.getElementById('slug');
       let tag = document.getElementById('tag');
@@ -119,7 +120,15 @@
       content.style.display = 'none';
       modal.style.display = 'block'
 
-      fetch(url, {method: 'GET'})
+      let data = JSON.stringify({
+        slug: slugKurir,
+        id: noResi
+      })
+
+      fetch(url, {
+        method: 'POST',
+        body: data
+      })
       .then(resp => resp.json())
       .then(body => {
         loading.style.display = 'none';

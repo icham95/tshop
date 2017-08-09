@@ -78,10 +78,11 @@
     <meta name="keywords" content="">
 
     <title>
-        Henpon
+        Henpons
     </title>
 
     <meta name="keywords" content="">
+    <link rel="manifest" href="http://localhost/tshop/tshop/manifest.json">
     
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 

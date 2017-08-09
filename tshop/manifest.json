@@ -1,0 +1,9 @@
+{  
+  "short_name": "Voice Memos",  
+  "name": "Voice Memos",  
+  "start_url": "index.php",  
+  "background_color": "#FAFAFA",
+  "theme_color": "#512DA8", 
+  "display": "standalone",  
+  "orientation": "portrait"  
+}
