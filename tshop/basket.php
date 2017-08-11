@@ -180,8 +180,15 @@
                         $array = array();
                     
                         $jumlah = mysqli_num_rows($proses);
-
+                        $user_query = "select * from tbl_user 
+                        inner join tbl_kota 
+                        where id_user = '". $_SESSION['id_user']."'";
+                        // $proses_user_query = db_select('tbl_user', 'id_user', $_SESSION['id_user']);
+                        $proses_user_query = db_run($user_query);
+                        $asd = mysqli_fetch_object($proses_user_query);
+                        var_dump($asd);
                     ?>
+                    
                 </div>
 
                 <div class="col-md-12" id="basket">
@@ -249,9 +256,22 @@
                                     <tfoot>
                                         <tr>
                                             <th></th>
-                                            <th colspan="4">Total</th>
-                                            <th colspan="1">Rp.<?=$total?></th>
+                                            <th colspan="1">Rp.
+                                            <?php 
+                                                if ($total > 1000000) {
+                                                    echo 'anda mendapaktan freeshipping ';
+                                                } else {
+                                                    
+                                                }
+                                                echo 'Rp.' .$total;
+                                            ?>
+                                            
+                                            </th>
                                         </tr>
+                                        <form action="" id="form_alamat">
+
+
+                                        </form>
                                     </tfoot>
                                 </table>
 
@@ -274,6 +294,12 @@
                                         Update jumlah barang
                                         <i class="fa fa-pencil-square-o"></i>
                                     </button>
+
+                                    <select id="hu_kurir">
+                                        <option value="jne"> JNE </option>
+                                    </select>
+
+                                    <button id="hu_btn_kurir" onclick="hu_kurir"> OK </button>
 
                                 </div>
                                 <div class="pull-right">
@@ -302,6 +328,76 @@
             <!-- /.container -->
         </div>
         <!-- /#content -->
+
+        <div id="hu_modal_alamat">
+
+        </div>
+
+        <style>
+            
+        </style>
+
+        <script>
+            // let header = new Headers();
+            // header.append('key', '57293e54bd156185722653e7648c2a69');
+            // let myBody['API-Key'] = 'e71cc3eedf38ffb30eb262707e26a041';
+            let formData = new FormData();
+            formData.append('API-Key', 'e71cc3eedf38ffb30eb262707e26a041');
+            // formData.append('from', 'jakarta');
+            // formData.append('to', 'bogor');
+            // formData.append('weight', '1800');
+            formData.append('courier', 'jne');
+            formData.append('format', 'json');
+            // city
+            // formData.append('query', 'bog');
+            // formData.append('type', 'origin');
+            // let url = 'http://api.ongkir.info/cost/find';
+            let url = 'http://api.ongkir.info/city/list';
+            fetch(url, {
+                method: 'POST',
+                header: new Headers({
+                    'content': 'x-www-form-urlencoded'
+                }),
+                // header: header,
+                mode: 'no-cors',
+                // body: {
+                //     'API-Key':'e71cc3eedf38ffb30eb262707e26a041'
+                // }
+                body: formData
+            })
+            .then(resp => console.log(resp.text()))
+            .catch(err => {
+                console.log(err);
+            });
+
+            function hu_kurir(event){
+                let formData = new FormData();
+                formData.append('API-Key', 'e71cc3eedf38ffb30eb262707e26a041');
+                formData.append('from', 'bogor');
+                formData.append('to', );
+                formData.append('courier', 'jne');
+                formData.append('format', 'json');
+                let url = 'http://api.ongkir.info/city/list';
+                fetch(url, {
+                    method: 'POST',
+                    header: new Headers({
+                        'content': 'x-www-form-urlencoded'
+                    }),
+                    // header: header,
+                    mode: 'no-cors',
+                    // body: {
+                    //     'API-Key':'e71cc3eedf38ffb30eb262707e26a041'
+                    // }
+                    body: formData
+                })
+                .then(resp => console.log(resp.text()))
+                .catch(err => {
+                    console.log(err);
+                });
+
+            }
+            
+        </script>
 <?php
 
     include_once('pages/footer.php');
