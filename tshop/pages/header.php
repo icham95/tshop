@@ -91,6 +91,7 @@
     <link href="views/css/animate.min.css" rel="stylesheet">
     <link href="views/css/owl.carousel.css" rel="stylesheet">
     <link href="views/css/owl.theme.css" rel="stylesheet">
+    <link href="views/css/my.css" rel="stylesheet">
 
     <!-- theme stylesheet -->
     <link href="views/css/style.default.css" rel="stylesheet" id="theme-stylesheet">

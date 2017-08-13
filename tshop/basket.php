@@ -181,7 +181,7 @@
                     
                         $jumlah = mysqli_num_rows($proses);
                         $user_query = "select * from tbl_user 
-                        inner join tbl_kota 
+                        inner join tbl_kota on tbl_user.id_kota = tbl_kota.id_kota
                         where id_user = '". $_SESSION['id_user']."'";
                         // $proses_user_query = db_select('tbl_user', 'id_user', $_SESSION['id_user']);
                         $proses_user_query = db_run($user_query);
@@ -244,11 +244,6 @@
                                                     Hapus
                                                     <i class="fa fa-trash-o"></i>
                                                 </a>
-
-                                                <a href="alamat.php?ganti=<?= $data['id_transaksi'] ?>" class="btn btn-warning">
-                                                    <i class="fa fa-home"></i>            
-                                                    Ganti alamat
-                                                </button>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -305,7 +300,7 @@
                                 <div class="pull-right">
                                     <input type="hidden" name="id_trans" value="<?=$array?>" >
 
-                                    <button type="submit" name="bfinish" class="btn btn-primary">Beli <i class="fa fa-chevron-right"></i>
+                                    <button type="submit" name="bnext" onclick="nextAlamat(event)" class="btn btn-primary"> Selanjutnya, alamat pengiriman <i class="fa fa-chevron-right"></i>
                                     </button>
                                     
                                 </div>
@@ -328,16 +323,17 @@
             <!-- /.container -->
         </div>
         <!-- /#content -->
-
-        <div id="hu_modal_alamat">
-
-        </div>
-
-        <style>
-            
-        </style>
+        <?php include_once('pages/modals/alamat.php');?>
+        <?php include_once('pages/modals/kurir.php');?>
 
         <script>
+
+            function nextAlamat(e) {
+                e.preventDefault();
+                let huModalAlamat = document.getElementById('hu_modal_alamat');
+                huModalAlamat.style.display = 'block';
+            }
+
             // let header = new Headers();
             // header.append('key', '57293e54bd156185722653e7648c2a69');
             // let myBody['API-Key'] = 'e71cc3eedf38ffb30eb262707e26a041';
@@ -374,7 +370,7 @@
                 let formData = new FormData();
                 formData.append('API-Key', 'e71cc3eedf38ffb30eb262707e26a041');
                 formData.append('from', 'bogor');
-                formData.append('to', );
+                formData.append('to', '<?= $asd->nama_kota ?>');
                 formData.append('courier', 'jne');
                 formData.append('format', 'json');
                 let url = 'http://api.ongkir.info/city/list';
